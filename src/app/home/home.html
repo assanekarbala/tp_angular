@@ -1,0 +1,35 @@
+<div class="page-container">
+  <div class="content-card">
+    <h2>🎉 Bienvenue !</h2>
+
+    <div *ngIf="user; else notLoggedIn" class="user-info">
+      <div class="info-box">
+        <h3>👤 Informations de l'utilisateur</h3>
+        <div class="user-details">
+          <p *ngIf="user.nom">
+            <strong>Nom :</strong>
+            <span>{{ user.nom }}</span>
+          </p>
+          <p>
+            <strong>Email :</strong>
+            <span>{{ user.email }}</span>
+          </p>
+        </div>
+      </div>
+
+      <button (click)="logout()" class="logout-btn">
+        🚪 Se déconnecter
+      </button>
+    </div>
+
+    <ng-template #notLoggedIn>
+      <div class="not-logged">
+        <div class="icon">🔒</div>
+        <p>Vous devez vous connecter pour accéder à cette page.</p>
+        <button (click)="goToLogin()" class="login-btn">
+          Se connecter
+        </button>
+      </div>
+    </ng-template>
+  </div>
+</div>
